@@ -26,20 +26,7 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             return
             
     welcome_text = (
-        "Welcome to the Upwork Demo Bot!\n\n"
-        "I'm Israel, Saviour. This is a demonstration of my Telegram bot with a microservices backend, integrating payments and Firebase.\n"
-        f"Your current status is: {db_user.subscription_status.upper()}\n\n"
-        "Use /prices to view DEMO subscription plans.\n"
-        "Use /about to learn more about my services and hire me."
-    )
-    
-    await update.message.reply_text(welcome_text)
-    logger.info("User started bot", telegram_id=user.id)
-
-async def about_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Handles the /about command."""
-    text = (
-        "👨‍💻 *About the Developer*\n\n"
+        "👋 *Welcome to the Upwork Demo Bot!*\n\n"
         "I'm Saviour Israel, a backend and distributed systems architect. You can hire me for your next project!\n\n"
         "💼 *Hire Me*\n"
         "• Upwork Rate: $10/hour\n"
@@ -48,9 +35,20 @@ async def about_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "• GitHub: [webcode2](https://github.com/webcode2)\n"
         "• LinkedIn: [Saviour Israel](https://linkedin.com/in/saviour-israel-2134631ab)\n"
         "• WhatsApp: +2348128991543\n"
-        "• Email: savior@elastrocloud.com | saviorisrael@gmail.com"
+        "• Email: savior@elastrocloud.com | saviorisrael@gmail.com\n\n"
+        "🤖 *What this bot can do*\n"
+        "This bot is a live demonstration of a production-ready microservices architecture. Features include:\n"
+        "• *Payments*: Seamless Paystack checkout integration for subscriptions.\n"
+        "• *Database*: Google Cloud Firestore integration to securely track user status.\n"
+        "• *Cloud Infrastructure*: Deployed on Google Cloud Run for automatic scalability.\n"
+        "• *Background Jobs*: Scheduled tasks to verify subscriptions and revoke access.\n"
+        "• *Automated Webhooks*: Real-time background sync with payment providers.\n\n"
+        f"Your current status is: *{db_user.subscription_status.upper()}*\n\n"
+        "Use /prices to view the DEMO subscription plans and test the payment flow."
     )
-    await update.message.reply_text(text, parse_mode="Markdown", disable_web_page_preview=True)
+    
+    await update.message.reply_text(welcome_text, parse_mode="Markdown", disable_web_page_preview=True)
+    logger.info("User started bot", telegram_id=user.id)
 
 async def prices_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Handles the /prices command."""
