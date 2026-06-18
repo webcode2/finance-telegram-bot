@@ -29,7 +29,7 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "Welcome to the Upwork Demo Bot!\n\n"
         "I'm Israel, Saviour. This is a demonstration of my Telegram bot with a microservices backend, integrating payments and Firebase.\n"
         f"Your current status is: {db_user.subscription_status.upper()}\n\n"
-        "Use /prices to view subscription plans.\n"
+        "Use /prices to view DEMO subscription plans.\n"
         "Use /about to learn more about my services and hire me."
     )
     
