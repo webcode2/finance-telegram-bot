@@ -29,6 +29,7 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "👋 *Welcome to the Upwork Demo Bot!*\n\n"
         "I'm Saviour Israel, a backend and distributed systems architect. You can hire me for your next project!\n\n"
         "💼 *Hire Me*\n"
+        "• Upwork Profile: [View Profile](https://www.upwork.com/freelancers/saviouri2)\n"
         "• Upwork Rate: $10/hour\n"
         "• Portfolio: [studio.elastrocloud.com](https://studio.elastrocloud.com)\n\n"
         "🔗 *Connect*\n"
