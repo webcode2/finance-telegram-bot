@@ -29,11 +29,28 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "Welcome to the Upwork Demo Bot!\n\n"
         "I'm Israel, Saviour. This is a demonstration of my Telegram bot with a microservices backend, integrating payments and Firebase.\n"
         f"Your current status is: {db_user.subscription_status.upper()}\n\n"
-        "Use /prices to view subscription plans."
+        "Use /prices to view subscription plans.\n"
+        "Use /about to learn more about my services and hire me."
     )
     
     await update.message.reply_text(welcome_text)
     logger.info("User started bot", telegram_id=user.id)
+
+async def about_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Handles the /about command."""
+    text = (
+        "👨‍💻 *About the Developer*\n\n"
+        "I'm Saviour Israel, a backend and distributed systems architect. You can hire me for your next project!\n\n"
+        "💼 *Hire Me*\n"
+        "• Upwork Rate: $10/hour\n"
+        "• Portfolio: [studio.elastrocloud.com](https://studio.elastrocloud.com)\n\n"
+        "🔗 *Connect*\n"
+        "• GitHub: [webcode2](https://github.com/webcode2)\n"
+        "• LinkedIn: [Saviour Israel](https://linkedin.com/in/saviour-israel-2134631ab)\n"
+        "• WhatsApp: +2348128991543\n"
+        "• Email: savior@elastrocloud.com | saviorisrael@gmail.com"
+    )
+    await update.message.reply_text(text, parse_mode="Markdown", disable_web_page_preview=True)
 
 async def prices_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Handles the /prices command."""

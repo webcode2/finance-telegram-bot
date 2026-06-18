@@ -1,7 +1,7 @@
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ConversationHandler, MessageHandler, filters
 from app.config import settings
 from app.telegram_bot.handlers import (
-    start_command, prices_command, profile_command, signal_command,
+    start_command, prices_command, profile_command, signal_command, about_command,
     button_callback, plan_callback, email_input, cancel_payment, WAITING_EMAIL
 )
 
@@ -21,6 +21,7 @@ def init_bot_app() -> Application:
     bot_app.add_handler(CommandHandler("prices", prices_command))
     bot_app.add_handler(CommandHandler("profile", profile_command))
     bot_app.add_handler(CommandHandler("signal", signal_command))
+    bot_app.add_handler(CommandHandler("about", about_command))
     
     conv_handler = ConversationHandler(
         entry_points=[CallbackQueryHandler(plan_callback, pattern="^plan_")],
