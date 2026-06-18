@@ -1,0 +1,11 @@
+[build]
+  command = "npm install"
+  functions = "functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/webhook/stripe"
+  to = "/.netlify/functions/stripe-webhook"
+  status = 200
